@@ -1,8 +1,8 @@
 
 //VARIABLES
-var words = ["sting", "shakira", "selenagomez", "avrillavigne"]
+var words = ["sting", "shakira", "selenagomez", "avrillavigne","linkinpark","akon"]
 
-//Empty variables to store values later
+//Variable for store value 
 var randomWord = "";
 var lettersOfWord = []
 var blanks = 0;
@@ -14,15 +14,7 @@ var wins = 0;
 var losses = 0;
 var guessesRemaining = 9;
 
-
-
-// ALL FUNCTIONS
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-//__________________________________________________________
-//GAME START FUNCTION
-//__________________________________________________________
+// Game Start Function
 function Game() {
     //computer generates random word from words array
     randomWord = words[Math.floor(Math.random() * words.length)];
@@ -48,16 +40,13 @@ function Game() {
     console.log(blanksAndCorrect)
 }
 
-
-//__________________________________________________________
-//AUDIO FUNCTION
-//__________________________________________________________
-
 //variables for audio function
 var sting = document.getElementById("sting");
 var shakira = document.getElementById("shakira");
 var selenagomez = document.getElementById("selenagomez");
 var avrillavigne = document.getElementById("avrillavigne");
+var linkinpark = document.getElementById("linkinpark");
+var akon = document.getElementById("akon");
 
 
 
@@ -65,6 +54,8 @@ function aud() {
     //sting Audio & Image
     //---------------------------
     if (randomWord === words[0]) {
+        akon.pause();
+        linkinpark.pause();
         avrillavigne.pause();
         selenagomez.pause();
         shakira.pause();
@@ -74,6 +65,8 @@ function aud() {
     //Shakira Audio & Image
     //---------------------------
     else if (randomWord === words[1]) {
+        akon.pause();
+        linkinpark.pause();
         avrillavigne.pause();
         selenagomez.pause();
         sting.pause();
@@ -83,6 +76,8 @@ function aud() {
     //Selena Gomez Audio & Image
     //---------------------------
     else if (randomWord === words[2]) {
+        akon.pause();
+        linkinpark.pause();
         avrillavigne.pause();
         shakira.pause();
         sting.pause();
@@ -92,11 +87,35 @@ function aud() {
     //Avril Lavigne Audio & Image
     //---------------------------
     else if (randomWord === words[3]) {
+        akon.pause();
+        linkinpark.pause();
         selenagomez.pause();
         shakira.pause();
         sting.pause();
         avrillavigne.play();
         document.getElementById("image").src = "./assets/images/avrillavigne.jpg";
+    }
+    //Linkin Park Audio & Image
+    //---------------------------
+    else if (randomWord === words[4]) {
+        akon.pause();
+        selenagomez.pause();
+        shakira.pause();
+        sting.pause();
+        avrillavigne.pause();
+        linkinpark.play();
+        document.getElementById("image").src = "./assets/images/linkinpark.jpg";
+    }
+      //Akon Audio & Image
+    //---------------------------
+    else if (randomWord === words[5]) {
+        linkinpark.pause();
+        selenagomez.pause();
+        shakira.pause();
+        sting.pause();
+        avrillavigne.pause();
+        akon.play();
+        document.getElementById("image").src = "./assets/images/akon.jpg";
     }
 };
 
@@ -109,10 +128,6 @@ function reset() {
     blanksAndCorrect = [];
     Game()
 }
-
-//__________________________________________________________
-//CHECK LETTERS/COMPARE FUNCTION
-//__________________________________________________________
 
 //If/Else, to see if letter selected matches random word
 function checkLetters(letter) {
@@ -140,10 +155,6 @@ function checkLetters(letter) {
     console.log(blanksAndCorrect);
 }
 
-//__________________________________________________________
-//FINAL COMPLETE FUNCTION
-//__________________________________________________________
-
 //check to see if player won...
 function complete() {
     console.log("wins:" + wins + "| losses:" + losses + "| guesses left:" + guessesRemaining)
@@ -167,12 +178,6 @@ function complete() {
     document.getElementById("currentword").innerHTML = "  " + blanksAndCorrect.join(" ");
     document.getElementById("guessesremaining").innerHTML = " " + guessesRemaining;
 }
-
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//_____________________________________________________
-// EXECUTE CODE 
-//_____________________________________________________
 
 //call start game function
 Game()
