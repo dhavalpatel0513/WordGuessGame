@@ -1,4 +1,4 @@
-### Hangman - a Word Guessing Game 
+### Hangman - Word Guessing Game 
 
 This word guessing game is set with a music artist name
 
